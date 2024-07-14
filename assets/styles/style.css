@@ -57,7 +57,7 @@ main {
 }
 
 ._tab {
-	background: none;
+	background: Black;
 	border: var(--border-shorthand);
 	border-bottom: 0;
 	border-radius: 0.188rem 0.188rem 0 0;
