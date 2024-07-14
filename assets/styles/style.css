@@ -2,14 +2,15 @@
 	--font-size-primary: 0.906rem; /* 14.5px */
 	--font-size-secondary: 0.688rem; /* 11px */
 
-	--foreground: rgba(0, 0, 0, 0.75);
+	--foreground: rgba(255, 255, 255, 0.85);
+	--background: rgba(20, 20, 20, 1);
 
-	--border-color: rgba(0, 0, 0, 0.55);
+	--border-color: rgba(255, 255, 255, 0.55);
 	--border-shorthand: 0.063rem solid var(--border-color);
 
 	/* Button */
 	--button-hover-foreground: rgba(255, 255, 255, 0.9);
-	--button-hover-backround: rgba(0, 0, 0, 0.78);
+	--button-hover-backround: rgba(50, 50, 50, 0.9);
 	--font-size-button: 0.769rem; /* 12.3px */
 
 	--seven: 0.438rem; /* 7px */
@@ -21,7 +22,7 @@
     box-sizing: border-box;
 }
 
-body { /* Left & right spacing is left & right from default body margin + 12px */
+body {
     display: flex;
     justify-content: center;
     min-height: 91vh;
@@ -30,6 +31,7 @@ body { /* Left & right spacing is left & right from default body margin + 12px *
     padding: var(--twelve);
     font-size: var(--font-size-primary);
     text-align: center;
+    background-color: var(--background);
 }
 
 main {
@@ -70,6 +72,7 @@ main {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	cursor: default;
+	color: var(--foreground);
 }
 
 ._tab[data-open="true"] {
@@ -142,6 +145,8 @@ main {
 	font-style: italic;
 	font-weight: bold;
 	outline: none;
+	background-color: var(--background);
+	color: var(--foreground);
 }
 
 ._body {
@@ -150,6 +155,8 @@ main {
 	border-bottom: 0;
 
 	position: relative;
+	background-color: var(--background);
+	color: var(--foreground);
 }
 
 ._body textarea {
@@ -161,6 +168,8 @@ main {
 	outline: none;
 	resize: none;
 	overflow-y: scroll;
+	background-color: var(--background);
+	color: var(--foreground);
 }
 
 ._body textarea[data-enable-wrap="true"] {
@@ -186,6 +195,7 @@ main {
 	border: var(--border-shorthand);
 	padding: 0 var(--twelve);
 	padding-top: 1px;
+	background-color: var(--background);
 }
 
 ._tool {
@@ -256,6 +266,7 @@ main {
 	font-size: var(--font-size-secondary);
 	line-height: 1.1;
 	word-wrap: break-word;
+	color: var(--foreground);
 }
 
 /* Media Query */
