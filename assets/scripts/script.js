@@ -1,6 +1,6 @@
 let notes = [{
-		title: "Welcome!",
-		content: "This is basically just https://westtle.github.io/simple-note/, but with more features. You can now add more notes and remove them if you want to.\n\nThere are also some tools that you can use below. For example, you can paste from your clipboard, copy, cut, delete, and enable word wrapping.",
+		title: "Bem-vindo!",
+		content: "Isso é basicamente apenas https://westtle.github.io/simple-note/, mas com mais recursos. Agora você pode adicionar mais notas e removê-las se quiser.\n\nTambém há algumas ferramentas que você pode usar abaixo. Por exemplo, você pode colar da sua área de transferência, copiar, cortar, excluir e habilitar a quebra de linha.",
 		id: 0,
 		lastOpened: true
 }];
@@ -12,20 +12,20 @@ const noteBody = document.querySelector("._body textarea");
 
 function addTab() {
 
-	// Create note & append to HTML.
+	// Criar nota e adicionar ao HTML.
 	const newTab = document.createElement("button");
 	newTab.classList.add("_tab");
-	newTab.title = "New Note"
-	newTab.innerText = "New Note";
+	newTab.title = "Nova Nota"
+	newTab.innerText = "Nova Nota";
 	newTab.setAttribute("data-id", +new Date());
 	newTab.setAttribute("data-open", "true");
 	newTab.addEventListener("click", openTab);
 
 	document.querySelector(".__tabs").insertBefore(newTab, newTabButton);
 
-	// Add a new note object.
+	// Adicionar um novo objeto de nota.
 	const newNote = {
-		title: "New Note",
+		title: "Nova Nota",
 		content: "",
 		id: newTab.dataset.id,
 		lastOpened: true
@@ -33,7 +33,7 @@ function addTab() {
 
 	notes.push(newNote);
 
-	// Open the new tab when created & save it to local storage.
+	// Abrir a nova aba quando criada e salvar no armazenamento local.
 	newTab.click();
 	saveNote();
 
@@ -44,15 +44,15 @@ function openTab() {
 	const tabs = document.querySelectorAll(".__tabs ._tab:not(._tab-tools)");
 	const currentNote = notes.find(note => note.id == this.dataset.id);
 
-	// Change data-open attribute to "false" for all note, except the current one to "true".
+	// Alterar o atributo data-open para "false" para todas as notas, exceto a atual para "true".
 	tabs.forEach(tab => tab.dataset.open = "false");
 	this.dataset.open = "true";
 
-	// Update the notes object.
+	// Atualizar o objeto de notas.
 	notes.forEach(note => note.lastOpened = false);
 	currentNote.lastOpened = true;
 
-	// Change note title & textarea in DOM.
+	// Alterar o título da nota e o textarea no DOM.
 	noteTitleInput.value = currentNote.title;
 	noteBody.value = currentNote.content;
 
@@ -65,23 +65,23 @@ function saveNote() {
 	notes.find(note => {
 		if (note.id == currentNote.dataset.id) {
 
-			// Update the notes object.
+			// Atualizar o objeto de notas.
 			note.title = noteTitleInput.value;
 			note.content = noteBody.value;
 
-			// Update title attribute in DOM.
+			// Atualizar o atributo title no DOM.
 			currentNote.title = note.title;
 
-			// If title input is empty then name the tab & title in notes object "Unnamed".
+			// Se o input do título estiver vazio, nomear a aba e o título no objeto de notas como "Sem Título".
 			if (noteTitleInput.value == "") {
-				note.title = "Unnamed";
-				currentNote.textContent = "Unnamed";
-				currentNote.title = "Unnamed";
+				note.title = "Sem Título";
+				currentNote.textContent = "Sem Título";
+				currentNote.title = "Sem Título";
 			} else {
 				currentNote.textContent = note.title;
 			};
 		
-			// Save to Local Storage.
+			// Salvar no Armazenamento Local.
 			localStorage.setItem("Notes", JSON.stringify(notes));
 		};
 	});
@@ -110,18 +110,18 @@ function loadNotes() {
 		document.querySelector(".__tabs").insertBefore(newTab, newTabButton);
 	});
 
-	// Open the last selected tab.
+	// Abrir a última aba selecionada.
 	document.querySelector("[data-open='true']").click();
 };
 
 newTabButton.addEventListener("click", addTab);
 noteTitleInput.addEventListener("input", () => {
 	debouncedsaveNote();
-	debouncedtoolMessage("Saved...");
+	debouncedtoolMessage("Salvo...");
 });
 noteBody.addEventListener("input", () => {
 	debouncedsaveNote();
-	debouncedtoolMessage("Saved...");
+	debouncedtoolMessage("Salvo...");
 });
 
 document.addEventListener("DOMContentLoaded", () => loadNotes());
