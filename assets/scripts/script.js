@@ -1,6 +1,6 @@
 let notes = [{
 		title: "Bem-vindo!",
-		content: "Isso é basicamente apenas https://westtle.github.io/simple-note/, mas com mais recursos. Agora você pode adicionar mais notas e removê-las se quiser.\n\nTambém há algumas ferramentas que você pode usar abaixo. Por exemplo, você pode colar da sua área de transferência, copiar, cortar, excluir e habilitar a quebra de linha.",
+		content: "Isso é basicamente apenas, mas com mais recursos. Agora você pode adicionar mais notas e removê-las se quiser.\n\nTambém há algumas ferramentas que você pode usar abaixo. Por exemplo, você pode colar da sua área de transferência, copiar, cortar, excluir e habilitar a quebra de linha.",
 		id: 0,
 		lastOpened: true
 }];
